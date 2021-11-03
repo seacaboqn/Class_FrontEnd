@@ -8,7 +8,7 @@ const ClassList = () => {
 	const [isLoaded, setIsLoaded] = useState(false);
 	const [items, setItems] = useState([]);
 	useEffect(() => {
-		fetch('http://localhost:3000/classes')
+		fetch('https://afternoon-lowlands-12411.herokuapp.com/classes')
 			.then((res) => res.json())
 			.then(
 				(result) => {

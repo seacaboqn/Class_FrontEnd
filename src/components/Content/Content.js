@@ -23,14 +23,15 @@ const Content = ({ close, onSaveNewClass }) => {
 		setEnteredRoom(event.target.value);
 	};
 
-	const submitHandler = (event) => {
+	const submitHandler = async (event) => {
+		event.preventDefault();
 		const newClass = {
 			name: enteredName,
 			part: enteredPart,
 			topic: enteredTopic,
 			room: enteredRoom,
 		};
-		onSaveNewClass(newClass);
+		await onSaveNewClass(newClass);
 	};
 	return (
 		<div className="modal">

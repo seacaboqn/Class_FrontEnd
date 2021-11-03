@@ -7,16 +7,20 @@ const NewClass = () => {
 	const [postId, setPostId] = useState(null);
 	let classData;
 
-	const onSaveNewClassHanldler = (enteredClassData) => {
+	const onSaveNewClassHanldler = async (enteredClassData) => {
 		classData = { ...enteredClassData };
 		const requestOptions = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(classData),
 		};
-		fetch('http://localhost:3000/classes', requestOptions)
-			.then((response) => response.json())
-			.then((data) => setPostId(data.id));
+		fetch('https://afternoon-lowlands-12411.herokuapp.com/classes', requestOptions).then(
+			(response) => {
+				const data = response.json();
+				setPostId(data.id);
+			}
+		);
+		// .then((data) => setPostId(data.id));
 	};
 
 	return (
