@@ -4,7 +4,7 @@ import Content from '../Content/Content';
 import Button from '@mui/material/Button';
 
 const NewClass = () => {
-	const [postId, setPostId] = useState(null);
+	//const [postId, setPostId] = useState(null);
 	let classData;
 
 	const onSaveNewClassHanldler = async (enteredClassData) => {
@@ -16,8 +16,7 @@ const NewClass = () => {
 		};
 		fetch('https://afternoon-lowlands-12411.herokuapp.com/classes', requestOptions).then(
 			(response) => {
-				const data = response.json();
-				setPostId(data.id);
+				window.location.reload();
 			}
 		);
 		// .then((data) => setPostId(data.id));
